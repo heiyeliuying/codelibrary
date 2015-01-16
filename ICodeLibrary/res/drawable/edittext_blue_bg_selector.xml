@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- view的各种状态(正常无焦点,焦点,onclick按下、放开等等) -->
+    <item android:state_pressed="true"><shape>
+
+            <!-- 颜色渐变 -->
+            <gradient android:angle="270" android:endColor="#6CA6CD" android:startColor="#6CA6CD" />
+
+            <!-- 按钮边缘 -->
+            <stroke android:width="2dp" android:color="#dcdcdc" />
+
+            <!-- 四个拐角 -->
+            <corners android:radius="2dp" />
+
+            <!-- 按钮文字和边缘距离(内边距) -->
+            <padding android:bottom="10dp" android:left="10dp" android:right="10dp" android:top="10dp" />
+        </shape></item>
+    <item android:state_focused="true"><shape>
+            <gradient android:angle="270" android:endColor="#6699cc" android:startColor="#6699cc" />
+
+            <stroke android:width="2dp" android:color="#99ccff" />
+
+            <corners android:radius="2dp" />
+
+            <padding android:bottom="10dp" android:left="10dp" android:right="10dp" android:top="10dp" />
+        </shape></item>
+    <!-- 默认状态 -->
+    <item><shape>
+            <gradient android:angle="270" android:endColor="#6699cc" android:startColor="#6699cc" />
+
+            <stroke android:width="2dp" android:color="#99ccff" />
+
+            <corners android:radius="3dp" />
+
+            <padding android:bottom="10dp" android:left="10dp" android:right="10dp" android:top="10dp" />
+        </shape></item>
+
+</selector>

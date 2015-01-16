@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- 字体样式 -->
+    <color name="common_text_primary">#666666</color>
+    
+    <color name="common_text_info">#999999</color>
+    
+    <!-- ListView相关 -->
+    <color name="common_listview_item_pressed">#f3f3f3</color>
+    
+</resources>

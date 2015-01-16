@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <style name="CommonProgressDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@drawable/common_progress_frame</item>
+        <item name="android:windowIsFloating">true</item>  
+        <item name="android:windowContentOverlay">@null</item>  
+        <item name="android:windowFrame">@null</item>  
+        <item name="android:windowTitleStyle">@null</item>  
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>  
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item> 
+        <!-- 是否显示阴影的关键设置点 --> 
+        <item name="android:backgroundDimEnabled">false</item>  
+        <item name="android:background">@android:color/transparent</item>  
+        <item name="android:windowNoTitle">true</item>  
+    </style>
+    
+    <style name="CommonAlertDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@drawable/common_dialog_frame</item>
+        <item name="android:windowIsFloating">true</item>  
+        <item name="android:windowContentOverlay">@null</item>  
+        <item name="android:windowFrame">@null</item>  
+        <item name="android:windowTitleStyle">@null</item>  
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>  
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item> 
+        <!-- 是否显示阴影的关键设置点 --> 
+        <item name="android:backgroundDimEnabled">true</item>  
+        <item name="android:background">@android:color/transparent</item>  
+        <item name="android:windowNoTitle">true</item>  
+    </style>
+</resources>

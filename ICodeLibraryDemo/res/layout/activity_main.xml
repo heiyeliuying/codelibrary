@@ -1,0 +1,50 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+   <LinearLayout 
+       android:layout_width="fill_parent"
+       android:layout_height="fill_parent"
+       android:orientation="vertical"
+       android:gravity="center_horizontal"
+       >
+       
+       <Button 
+           android:id="@+id/main_button_market"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="market相关,这里是测试代码"
+           />
+       
+        <com.icode.library.widgets.IThemeButton 
+           android:id="@+id/main_button_blue"
+           android:layout_width="fill_parent"
+           android:layout_height="wrap_content"
+           android:text="blue样式的Button"
+           />
+        <com.icode.library.widgets.IThemeEditText 
+            android:layout_width="fill_parent"
+           android:layout_height="wrap_content"
+           android:text="blue样式的EditText "
+           android:hint="请输入内容"
+           android:layout_marginTop="5dp"
+            />
+        
+        <com.icode.library.widgets.IThemeCheckbox 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="这里都是好人"
+             android:layout_marginTop="5dp"
+            />
+        
+        <Button android:id="@+id/main_button_toast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="toast"
+            ></Button>
+        
+   </LinearLayout>
+
+</ScrollView>

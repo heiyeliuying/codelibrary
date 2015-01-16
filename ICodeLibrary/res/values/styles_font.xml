@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- 主标题文本样式 -->
+     <style name="common_text_style_primary">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@color/common_text_primary</item>
+        <item name="android:singleLine">true</item>
+        
+    </style>
+    
+     <!-- 描述信息文本样式 -->
+    <style name="common_text_style_info">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/common_text_info</item>
+        <item name="android:singleLine">true</item>
+        
+    </style>
+</resources>
