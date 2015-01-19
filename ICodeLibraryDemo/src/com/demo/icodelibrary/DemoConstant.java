@@ -13,7 +13,8 @@ public enum DemoConstant {
   demo_pictureCrop,
   demo_httpQuery,
   demo_imageLoader,
-  demo_introduce
+  demo_introduce,
+  demo_roundCorner 
   
   ;
   

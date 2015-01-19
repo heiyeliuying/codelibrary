@@ -64,6 +64,9 @@ public class DemoDetailActivity extends IActivity implements IPageRuler{
       case demo_introduce:
         skipToIntroduce();
         break;
+      case demo_roundCorner:
+        skipToRoundCorner();
+        break;
     default:
       break;
     }
@@ -185,5 +188,11 @@ public class DemoDetailActivity extends IActivity implements IPageRuler{
     transaction.commitAllowingStateLoss();
     
   }
-  
+  public void skipToRoundCorner(){
+    FragmentTransaction transaction = fragmentManager.beginTransaction();
+    RoundConerFragment fragment = new RoundConerFragment();
+    transaction.replace(fragmentId, fragment);
+    transaction.commitAllowingStateLoss();
+    
+  }
 }

@@ -44,7 +44,8 @@ public class DemoActivity extends IActivity  implements IPageRuler {
         "9 图片裁剪 PictureCropFragment",
         "10 http请求获取数据 HttpQueryFragment",
         "11 HTTP请求图片 ImageLoadFragment",
-        "12 首次进入时宣传介绍页面 IntroduceFragment"
+        "12 首次进入时宣传介绍页面 IntroduceFragment",
+        "13 圆角图片   RoundConerFragment "
         
         
     };
@@ -98,6 +99,9 @@ public class DemoActivity extends IActivity  implements IPageRuler {
         case 11:
           constant = DemoConstant.demo_introduce;
           break;
+          case 12:
+            constant = DemoConstant.demo_roundCorner;
+            break;
 
         default:
           break;
