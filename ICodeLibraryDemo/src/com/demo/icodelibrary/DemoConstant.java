@@ -14,7 +14,8 @@ public enum DemoConstant {
   demo_httpQuery,
   demo_imageLoader,
   demo_introduce,
-  demo_roundCorner 
+  demo_roundCorner ,
+  demo_recommand
   
   ;
   

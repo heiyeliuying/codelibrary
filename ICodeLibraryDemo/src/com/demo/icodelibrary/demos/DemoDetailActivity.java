@@ -67,6 +67,9 @@ public class DemoDetailActivity extends IActivity implements IPageRuler{
       case demo_roundCorner:
         skipToRoundCorner();
         break;
+      case demo_recommand:
+        skipToRecommand();
+        break;
     default:
       break;
     }
@@ -195,4 +198,12 @@ public class DemoDetailActivity extends IActivity implements IPageRuler{
     transaction.commitAllowingStateLoss();
     
   }
+  public void skipToRecommand(){
+    FragmentTransaction transaction = fragmentManager.beginTransaction();
+    RecommandFragment fragment = new RecommandFragment();
+    transaction.replace(fragmentId, fragment);
+    transaction.commitAllowingStateLoss();
+    
+  }
+  
 }
