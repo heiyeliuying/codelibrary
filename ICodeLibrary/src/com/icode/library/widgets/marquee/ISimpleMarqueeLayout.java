@@ -3,12 +3,15 @@ package com.icode.library.widgets.marquee;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,22 +22,25 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.code.icodelibrary.R;
+import com.icode.library.tools.utils.IDestinyUtils;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.viewpagerindicator.CirclePageIndicator;
+import com.viewpagerindicator.LinePageIndicator;
+import com.viewpagerindicator.PageIndicator;
 /**
  * 一个简单的精彩推荐的实现.自动的轮换图片
  *
  */
 public class ISimpleMarqueeLayout extends RelativeLayout {
 
-  private View mContainerView;
+  private RelativeLayout mContainerView;
   private AutoScrollViewPager scrollViewPager;
   private ISimlpeMarqueeViewAdapter marqueeViewAdapter;
   private List<IMarqueeItem> marqueeItems = new ArrayList<ISimpleMarqueeLayout.IMarqueeItem>();
   private IMarqueeInfo marqueeInfo;
-  private CirclePageIndicator indicator ;
   private MarqueeItemSelectedListener listener;
+  private PageIndicator indicator;
 
   public ISimpleMarqueeLayout(Context context) {
     super(context);
@@ -50,6 +56,41 @@ public class ISimpleMarqueeLayout extends RelativeLayout {
     super(context, attrs);
     initViews();
   }
+  
+  /**
+   *
+   *导航小图标的位置样式
+   */
+  public static enum MarqueeIndicatorPositionStyle{
+    /**
+     * 居右显示
+     */
+    position_right,
+    /**
+     * 居中显示
+     */
+    position_center,
+    /**
+     * 居左显示
+     */
+    position_left
+  }
+  
+  /**
+   * 导航小图标的样式
+   */
+  public static enum MarqueeIndicatorStyle{
+    /**
+     * 圆圈样式
+     */
+    style_circle,
+    /**
+     * 线条样式
+     */
+    style_line 
+    
+  }
+  
 
   /**
    * 设置推荐内容的展示属性.
@@ -76,11 +117,29 @@ public class ISimpleMarqueeLayout extends RelativeLayout {
      * 宽度和高度的比例
      */
     int widthDivHeight = 2;
+    
+    MarqueeIndicatorPositionStyle positionStyle = MarqueeIndicatorPositionStyle.position_right;
+    
+    MarqueeIndicatorStyle indicatorStyle = MarqueeIndicatorStyle.style_circle;
+    
 
     public static IMarqueeInfo getInstance() {
       IMarqueeInfo marqueeInfo = new IMarqueeInfo();
       return marqueeInfo;
     }
+    
+    /**
+     * 
+     * @param style 底部indicator的位置样式
+     * @return
+     */
+    public static IMarqueeInfo getInstance(MarqueeIndicatorPositionStyle positionStyle,MarqueeIndicatorStyle indicatorStyle) {
+      IMarqueeInfo marqueeInfo = new IMarqueeInfo();
+      marqueeInfo.positionStyle = positionStyle;
+      marqueeInfo.indicatorStyle = indicatorStyle;
+      return marqueeInfo;
+    }
+
 
     /**
      * 
@@ -162,7 +221,7 @@ public class ISimpleMarqueeLayout extends RelativeLayout {
   private void initViews() {
     if (marqueeInfo == null)
       marqueeInfo = IMarqueeInfo.getInstance();
-    mContainerView = LayoutInflater.from(getContext()).inflate(R.layout.common_marquee, null);
+    mContainerView = (RelativeLayout)LayoutInflater.from(getContext()).inflate(R.layout.common_marquee, null);
     scrollViewPager = (AutoScrollViewPager) mContainerView.findViewById(R.id.marquee_viewpager);
     marqueeViewAdapter = new ISimlpeMarqueeViewAdapter();
     scrollViewPager.setAdapter(marqueeViewAdapter);
@@ -179,25 +238,129 @@ public class ISimpleMarqueeLayout extends RelativeLayout {
     if(marqueeInfo.destWidth==0){
       marqueeInfo.destWidth = getScreenWidth();
     }
+    layoutBaseLayout();
+    layoutViewPager();
+    layoutIndicator();
+    
+    
+    
+  }
+  
+  //自动布局indicator
+  private void layoutIndicator(){
+    int destPosition  = 1 ;
+    int childCount = mContainerView.getChildCount();
+    if(childCount>destPosition){
+      mContainerView.removeViewAt(destPosition);
+    }
+    
+    switch (marqueeInfo.indicatorStyle) {
+    case style_circle:
+      indicator = new CirclePageIndicator(getContext());
+      break;
+    case style_line:
+      indicator = new LinePageIndicator(getContext());
+      break;
+
+    default:
+      break;
+    }
+     
+    
+     RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(
+        LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
+     
+     switch (marqueeInfo.positionStyle) {
+    case position_center:
+      layoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+      layoutParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
+      break;
+    case position_left:
+      layoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+      layoutParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+      break;
+    case position_right:
+      layoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+      layoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+      break;
+
+    default:
+      break;
+    }
+    
+    if(indicator instanceof CirclePageIndicator){
+      mContainerView.addView((CirclePageIndicator)indicator, layoutParams);
+      layoutCircleIndicator((CirclePageIndicator)indicator);
+    }
+    
+    if(indicator instanceof LinePageIndicator){
+      mContainerView.addView((LinePageIndicator)indicator, layoutParams);
+      layoutLinePageIndicator((LinePageIndicator)indicator);
+    }
+    
+    
+    
+    indicator.setViewPager(scrollViewPager);
+   
+    
+  }
+  //绘制线条样式的导航图标
+  private void layoutLinePageIndicator(LinePageIndicator indicator){
+    final float density = getResources().getDisplayMetrics().density;
+    indicator.setSelectedColor(0x88FF0000);
+    indicator.setUnselectedColor(0xFF888888);
+    indicator.setStrokeWidth(4 * density);
+    indicator.setLineWidth(30 * density);
+    int padding = dp2px(getContext(), 10).intValue();
+    indicator.setPadding(padding, padding, padding, padding);
+  }
+  
+  //绘制圆圈样式的导航图标
+  private void layoutCircleIndicator(CirclePageIndicator circlePageIndicator){
+    int padding = dp2px(getContext(), 10).intValue();
+    circlePageIndicator.setPadding(padding, padding, padding, padding);
+    final float density = getResources().getDisplayMetrics().density;
+    circlePageIndicator.setBackgroundColor(Color.TRANSPARENT);
+    circlePageIndicator.setRadius(4 * density);
+    circlePageIndicator.setPageColor(Color.WHITE);
+    circlePageIndicator.setFillColor(Color.parseColor("#c3c3c3"));
+    circlePageIndicator.setStrokeColor(Color.GRAY);
+    circlePageIndicator.setStrokeWidth(1 * density);
+  }
+  
+  
+ private  Float dp2px(Context context, int number) {
+    DisplayMetrics displaysMetrics = new DisplayMetrics();
+    WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+    windowManager.getDefaultDisplay().getMetrics(displaysMetrics);
+    return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, number, displaysMetrics);
+  }
+
+  
+  //设置relativeLayout的高宽
+  private void layoutBaseLayout(){
+    LinearLayout.LayoutParams layoutParams2 = 
+        new LinearLayout.LayoutParams( marqueeInfo.destWidth,
+            marqueeInfo.destWidth / marqueeInfo.widthDivHeight);
+    setLayoutParams(layoutParams2);
+    
+  }
+  
+  //设置viewpager的高宽,不设置会默认占满全屏
+  private void layoutViewPager(){
     RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(
         marqueeInfo.destWidth, marqueeInfo.destWidth / marqueeInfo.widthDivHeight);
     scrollViewPager.setLayoutParams(layoutParams);
-    indicator = (CirclePageIndicator) mContainerView.findViewById(R.id.marquee_viewpager_indicator);
-   
-    LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams( marqueeInfo.destWidth, marqueeInfo.destWidth / marqueeInfo.widthDivHeight);
-    setLayoutParams(layoutParams2);
     
-    indicator.setViewPager(scrollViewPager);
-    final float density = getResources().getDisplayMetrics().density;
-    indicator.setBackgroundColor(Color.TRANSPARENT);
-    indicator.setRadius(4 * density);
-    indicator.setPageColor(Color.WHITE);
-    indicator.setFillColor(Color.parseColor("#c3c3c3"));
-    indicator.setStrokeColor(Color.GRAY);
-    indicator.setStrokeWidth(1 * density);
-    
-    
-    
+  }
+  
+
+  public PageIndicator getIndicator() {
+    return indicator;
+  }
+
+  public void setIndicator(PageIndicator indicator) {
+    this.indicator = indicator;
   }
 
   private class ISimlpeMarqueeViewAdapter extends PagerAdapter {

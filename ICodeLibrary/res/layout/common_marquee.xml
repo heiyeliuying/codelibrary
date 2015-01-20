@@ -10,13 +10,5 @@
         android:layout_height="wrap_content"
         />
     
-    <com.viewpagerindicator.CirclePageIndicator
-        android:id="@+id/marquee_viewpager_indicator"
-        android:padding="10dip"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        />
-
+  
 </RelativeLayout>
