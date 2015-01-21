@@ -15,7 +15,8 @@ public enum DemoConstant {
   demo_imageLoader,
   demo_introduce,
   demo_roundCorner ,
-  demo_recommand
+  demo_recommand,
+  demo_signature
   
   ;
   

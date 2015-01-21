@@ -46,7 +46,8 @@ public class DemoActivity extends IActivity  implements IPageRuler {
         "11 HTTP请求图片 ImageLoadFragment",
         "12 首次进入时宣传介绍页面 IntroduceFragment",
         "13 圆角图片   RoundConerFragment ",
-        "14 轮流播放精品推荐  RecommandFragment"
+        "14 轮流播放精品推荐  RecommandFragment",
+        "15 手动签名  SignatureFragment"
         
         
     };
@@ -105,6 +106,9 @@ public class DemoActivity extends IActivity  implements IPageRuler {
             break;
           case 13:
             constant = DemoConstant.demo_recommand;
+            break;
+          case 14:
+            constant = DemoConstant.demo_signature;
             break;
 
         default:

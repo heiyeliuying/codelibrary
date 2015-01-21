@@ -70,6 +70,9 @@ public class DemoDetailActivity extends IActivity implements IPageRuler{
       case demo_recommand:
         skipToRecommand();
         break;
+      case demo_signature:
+        skipToSignature();
+        break;
     default:
       break;
     }
@@ -205,5 +208,11 @@ public class DemoDetailActivity extends IActivity implements IPageRuler{
     transaction.commitAllowingStateLoss();
     
   }
-  
+  public void skipToSignature(){
+    FragmentTransaction transaction = fragmentManager.beginTransaction();
+    SignatureFragment fragment = new SignatureFragment();
+    transaction.replace(fragmentId, fragment);
+    transaction.commitAllowingStateLoss();
+    
+  }
 }
