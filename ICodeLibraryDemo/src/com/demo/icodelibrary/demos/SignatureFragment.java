@@ -53,8 +53,7 @@ public class SignatureFragment extends IFragment implements IPageRuler {
         ILogUtils.logError("SignatureFragment", "签名被清除");
       }
     });
-    signaturePad.setBackgroundColor(Color.BLUE);
-    signaturePad.strokeWidth(10);
+    signaturePad.setBackgroundColor(Color.WHITE);
     
     
     button_clear = (Button) mContentView.findViewById(R.id.signature_clear);

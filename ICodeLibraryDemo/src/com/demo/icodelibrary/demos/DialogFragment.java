@@ -1,5 +1,8 @@
 package com.demo.icodelibrary.demos;
 
+import java.util.Arrays;
+import java.util.Collections;
+
 import android.app.Dialog;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -123,11 +126,23 @@ public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle sa
   private void  showSimpleListDialog(){
     String items[] = new String[]{
         "语文",
+        "英语"
+        /*"数学",
+        "化学",
+        "综上所述,并不是所有的内容都会在列表中显示出来.综上所述,并不是所有的内容都会在列表中显示出来.综上所述,并不是所有的内容都会在列表中显示出来",
+        "最高长度为2行",
+        "语文",
         "英语",
         "数学",
         "化学",
-        "综上所述,并不是所有的内容都会在列表中显示出来",
-        "最高长度为2行"
+        "综上所述,并不是所有的内容都会在列表中显示出来.综上所述,并不是所有的内容都会在列表中显示出来.综上所述,并不是所有的内容都会在列表中显示出来",
+        "最高长度为2行",
+        "语文",
+        "英语",
+        "数学",
+        "化学",
+        "综上所述,并不是所有的内容都会在列表中显示出来.综上所述,并不是所有的内容都会在列表中显示出来.综上所述,并不是所有的内容都会在列表中显示出来",
+        "最高长度为2行"*/
         
     };
     DialogInfo<String> dialogInfo = DialogInfo.getInstance(mActivity, items, new DialogListItemClickListener() {
@@ -138,9 +153,9 @@ public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle sa
       }
     
     });
-   /* dialogInfo.setDividerColor(Color.BLUE);
-    dialogInfo.setTitleColor(Color.BLUE);
-    dialogInfo.setGravity(Gravity.CENTER);*/
+    dialogInfo.setDividerColor(Color.parseColor("#666699"));
+    dialogInfo.setTitleColor(Color.parseColor("#666699"));
+    dialogInfo.setGravity(Gravity.LEFT);
     
     Dialog dialog = ISimpleListDialog.getInstance(mActivity, dialogInfo);
     dialog.show();

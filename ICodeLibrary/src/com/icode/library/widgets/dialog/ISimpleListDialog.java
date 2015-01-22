@@ -5,19 +5,25 @@ import java.util.List;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.view.ViewGroup.LayoutParams;
+import android.view.ViewManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.code.icodelibrary.R;
+import com.icode.library.tools.utils.ILogUtils;
 
 /**
  * 列表类型展示的Dialog.
@@ -86,7 +92,9 @@ public class ISimpleListDialog<T> extends Dialog {
   }
 
   private void initViews() {
-    setContentView(R.layout.common_dialog_list);
+    View view = LayoutInflater.from(mContext).inflate(R.layout.common_dialog_list, null);
+    LayoutParams params= new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+    setContentView(view, params);
     textView_title = (TextView) findViewById(R.id.dialog_list_title);
     textView_title.setText(title);
     textView_title.setTextColor(colorTitle);
@@ -100,6 +108,10 @@ public class ISimpleListDialog<T> extends Dialog {
     mListView.setDivider(mContext.getResources().getDrawable(R.drawable.common_list_divider));
     simpleListAdapter = new ISimpleListAdapter();
     mListView.setAdapter(simpleListAdapter);
+    
+    
+  
+    
     mListView.setOnItemClickListener(new OnItemClickListener() {
 
       @Override
@@ -113,6 +125,57 @@ public class ISimpleListDialog<T> extends Dialog {
       }
     });
 
+    
+    adjustListViewHeight();
+    
+  }
+  
+  
+  /**
+   * 自动计算listview的高度,动态匹配高度
+   */
+  private void adjustListViewHeight(){
+    
+   int count =  simpleListAdapter.getCount();
+   
+ WindowManager windowManager =   (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
+ int screenWidth  = windowManager.getDefaultDisplay().getWidth();
+ 
+   
+  int  totalHeight = 0;
+  View itemView;
+    for (int i = 0; i < count; i++) {
+      itemView = simpleListAdapter.getView(i, null, null);
+      itemView.measure(0, 0);
+      ILogUtils.logError("ITEM高度:"+itemView.getMeasuredHeight()+" screenWidth="+screenWidth);
+     totalHeight+= itemView.getMeasuredHeight();
+     
+    }
+    
+    
+    
+    float factor = 0.8f;
+    
+   int orientation =  mContext.getResources().getConfiguration().orientation;
+   switch (orientation) {
+  case Configuration.ORIENTATION_LANDSCAPE:
+    factor = 0.4f;
+    break;
+  case Configuration.ORIENTATION_PORTRAIT:
+    factor = 0.8f;
+    break;
+
+  default:
+    break;
+  }
+   
+    
+    if(totalHeight>screenWidth*factor){
+      totalHeight = (int) (screenWidth*factor);
+    }
+    mListView.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT,
+        totalHeight));
+    
   }
 
   /*******************************************************************/
