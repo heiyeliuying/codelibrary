@@ -73,6 +73,9 @@ public class DemoDetailActivity extends IActivity implements IPageRuler{
       case demo_signature:
         skipToSignature();
         break;
+      case demo_alphabetSection:
+        skipToAlphabetSection();
+        break;
     default:
       break;
     }
@@ -215,4 +218,14 @@ public class DemoDetailActivity extends IActivity implements IPageRuler{
     transaction.commitAllowingStateLoss();
     
   }
+  
+  
+  public void skipToAlphabetSection(){
+    FragmentTransaction transaction = fragmentManager.beginTransaction();
+    AlphabetSectionFragment fragment = new AlphabetSectionFragment();
+    transaction.replace(fragmentId, fragment);
+    transaction.commitAllowingStateLoss();
+    
+  }
+  
 }

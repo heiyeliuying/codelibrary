@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:paddingTop="50dp"
+    android:paddingBottom="50dp"
+    android:paddingRight="1dp"
+    android:paddingLeft="5dp"
+    >
+    <TextView 
+        android:id="@+id/alphabet_info"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        android:textSize="50sp"
+        android:textColor="@android:color/white"
+        android:background="@android:color/black"
+        android:gravity="center"
+        
+        />
+    
+    <com.icode.library.widgets.sectionIndexer.ISimpleSectionIndicator
+        android:id="@+id/alphabet_indexer"
+        android:layout_width="30dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        />
+
+    
+</RelativeLayout>

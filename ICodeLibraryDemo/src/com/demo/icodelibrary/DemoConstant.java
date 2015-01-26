@@ -16,7 +16,8 @@ public enum DemoConstant {
   demo_introduce,
   demo_roundCorner ,
   demo_recommand,
-  demo_signature
+  demo_signature,
+  demo_alphabetSection
   
   ;
   
