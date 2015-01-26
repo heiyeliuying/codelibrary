@@ -3,8 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" 
-    android:paddingTop="50dp"
-    android:paddingBottom="50dp"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp"
     android:paddingRight="1dp"
     android:paddingLeft="5dp"
     >
@@ -22,7 +22,7 @@
     
     <com.icode.library.widgets.sectionIndexer.ISimpleSectionIndicator
         android:id="@+id/alphabet_indexer"
-        android:layout_width="30dp"
+        android:layout_width="25dp"
         android:layout_height="match_parent"
         android:layout_alignParentRight="true"
         />

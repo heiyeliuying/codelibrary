@@ -3,6 +3,7 @@ package com.demo.icodelibrary.demos;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,8 +46,10 @@ public class AlphabetSectionFragment extends IFragment implements IPageRuler {
       }
     });
     
+   // sectionIndicator.setIndexerBgColor(Color.parseColor("#55993366"));
+   // sectionIndicator.setSectionColor(Color.parseColor("#CC9990"));
    // sectionIndicator.setSections(tempList());
-    
+    sectionIndicator.setSectionFontSize(15);
     
   }
 

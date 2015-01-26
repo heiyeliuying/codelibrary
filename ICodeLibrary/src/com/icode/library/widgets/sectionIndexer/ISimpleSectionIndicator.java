@@ -40,6 +40,7 @@ public class ISimpleSectionIndicator extends View {
   private int color_bg = Color.parseColor("#55515151");
   //section字体的颜色
   private int color_section = Color.parseColor("#424242");
+  private int fontSize = 17;
 
   public ISimpleSectionIndicator(Context context, AttributeSet attrs, int defStyle) {
     super(context, attrs, defStyle);
@@ -90,7 +91,7 @@ public class ISimpleSectionIndicator extends View {
     paint.setColor(color_section);
     paint.setTextAlign(Align.CENTER);
     paint.setAntiAlias(true);
-    paint.setTextSize(getPxBySp(17));
+    paint.setTextSize(getPxBySp(fontSize));
     
   }
   
@@ -202,7 +203,38 @@ public class ISimpleSectionIndicator extends View {
     
   }
   
+  /**
+   * 设置背景色
+   * @param bgColor
+   */
+  public void setIndexerBgColor(int bgColor){
+    this.color_bg = bgColor ;
+    initPaint();
+    postInvalidate();
+    
+  }
   
+  /**
+   * 设置section字体颜色
+   */
+  public void setSectionColor(int fontColor){
+    this.color_section =  fontColor;
+    initPaint(); 
+    postInvalidate();
+    
+  }
+  
+  /**
+   * 设置section字体大小
+   * @param numInSP sp单位的大小
+   */
+  public void setSectionFontSize(int numInSP){
+    
+    this.fontSize = numInSP;
+    initPaint();
+    postInvalidate();
+    
+  }
   
   public SectionIndexerChangedListener getSectionIndexerChangedListener() {
     return sectionIndexerChangedListener;
