@@ -1,6 +1,7 @@
 package com.icode.library.tools.utils;
 
 import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
 /**
@@ -25,6 +26,24 @@ public class IStateDrawableUtils {
 		bg.addState(new int[] {}, normalDrawable);
 		return bg;
 
+	}
+	
+	/**
+	 *  使用颜色构建新的selector
+	 * @param context
+	 * @param normalColor 普通状态下的颜色
+	 * @param pressColor 按下状态下的颜色
+	 * @return
+	 */
+	public static StateListDrawable newColorSelector(Context context,int normalColor,int pressColor){
+	  StateListDrawable bg = new StateListDrawable();
+    Drawable pressedDrawable = new ColorDrawable(pressColor);
+    Drawable normalDrawable =new ColorDrawable(normalColor);
+    bg.addState(new int[] { android.R.attr.state_pressed,
+        android.R.attr.state_enabled }, pressedDrawable);
+    bg.addState(new int[] {}, normalDrawable);
+    return bg;
+	  
 	}
 
 }

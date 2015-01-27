@@ -76,6 +76,9 @@ public class DemoDetailActivity extends IActivity implements IPageRuler{
       case demo_alphabetSection:
         skipToAlphabetSection();
         break;
+      case demo_expandable:
+        skipToExpandableList();
+        break;
     default:
       break;
     }
@@ -223,6 +226,16 @@ public class DemoDetailActivity extends IActivity implements IPageRuler{
   public void skipToAlphabetSection(){
     FragmentTransaction transaction = fragmentManager.beginTransaction();
     AlphabetSectionFragment fragment = new AlphabetSectionFragment();
+    transaction.replace(fragmentId, fragment);
+    transaction.commitAllowingStateLoss();
+    
+  }
+  
+  
+  
+  public void skipToExpandableList(){
+    FragmentTransaction transaction = fragmentManager.beginTransaction();
+    ExpandableFragment fragment = new ExpandableFragment();
     transaction.replace(fragmentId, fragment);
     transaction.commitAllowingStateLoss();
     

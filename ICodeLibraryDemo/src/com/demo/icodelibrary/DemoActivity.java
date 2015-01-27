@@ -48,7 +48,8 @@ public class DemoActivity extends IActivity  implements IPageRuler {
         "13 圆角图片   RoundConerFragment ",
         "14 轮流播放精品推荐  RecommandFragment",
         "15 手动签名  SignatureFragment",
-        "16 首字母快速检索   AlphabetSectionFragment"
+        "16 首字母快速检索   AlphabetSectionFragment",
+        "17 分类展示列表 ExpandableFragment"
         
         
     };
@@ -113,6 +114,9 @@ public class DemoActivity extends IActivity  implements IPageRuler {
             break;
           case 15:
             constant = DemoConstant.demo_alphabetSection;
+            break;
+          case 16:
+            constant = DemoConstant.demo_expandable;
             break;
 
         default:

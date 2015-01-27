@@ -3,7 +3,6 @@ package com.demo.icodelibrary.demos;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +12,8 @@ import android.widget.TextView;
 import com.demo.icodelibrary.R;
 import com.icode.library.common.IFragment;
 import com.icode.library.common.IPageRuler;
-import com.icode.library.tools.utils.ILogUtils;
+import com.icode.library.widgets.adapter.ISimpleExpandableAdapter;
+import com.icode.library.widgets.adapter.ISimpleExpandableAdapter.IExpandableItem;
 import com.icode.library.widgets.sectionIndexer.ISimpleSectionIndicator;
 /**
  * 首字符排序
@@ -22,6 +22,7 @@ public class AlphabetSectionFragment extends IFragment implements IPageRuler {
   
   private ISimpleSectionIndicator sectionIndicator;
   private TextView textView_info ;
+  
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     mContentView = LayoutInflater.from(mActivity).inflate(R.layout.demo_alphabet_section, null);
@@ -51,8 +52,15 @@ public class AlphabetSectionFragment extends IFragment implements IPageRuler {
    // sectionIndicator.setSections(tempList());
     sectionIndicator.setSectionFontSize(15);
     
+    
+    
+    
   }
 
+ 
+  
+ 
+  
   
   private List<String> tempList(){
     List<String> strings = new ArrayList<String>();

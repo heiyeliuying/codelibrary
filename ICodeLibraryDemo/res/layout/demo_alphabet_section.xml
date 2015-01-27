@@ -6,8 +6,13 @@
     android:paddingTop="20dp"
     android:paddingBottom="20dp"
     android:paddingRight="1dp"
-    android:paddingLeft="5dp"
+    android:paddingLeft="1dp"
     >
+    
+    
+    
+    
+    
     <TextView 
         android:id="@+id/alphabet_info"
         android:layout_width="100dp"
