@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -38,14 +39,30 @@ public class ISimpleExpandableAdapter extends BaseExpandableListAdapter {
   }
   
   public static class IExpandableInfo{
-    
-    public int groupIndicatorUp = DISABLE_CODE ;
-    public int groupIndicatorDown = DISABLE_CODE;
+    //向上的箭头
+    public int groupArrowUp = DISABLE_CODE ;
+    //向下的箭头
+    public int groupArrowDown = DISABLE_CODE;
+    //group的默认背景图
     public int  groupBgnormal = DISABLE_CODE ;
+    //group的按下状态的背景图
     public int groupBgPressed = DISABLE_CODE;
+    //group的标示图
+    public int groupIndicator = DISABLE_CODE;
+    
+    
     public int childBgNormal = DISABLE_CODE ;
     public int childBgPressed = DISABLE_CODE;
     public int childIndicator = DISABLE_CODE;
+    
+    
+    //group的颜色和字体大小
+    public int groupTitleColor = DISABLE_CODE;
+    public int groupTitleSize = DISABLE_CODE;
+    //child的颜色和字体大小
+    public int childTitleColor = DISABLE_CODE;
+    public int childTitleSize = DISABLE_CODE;
+    
     public IExpandableItemClickedListener clickedListener ;
     
     
@@ -54,8 +71,8 @@ public class ISimpleExpandableAdapter extends BaseExpandableListAdapter {
       
       info.childBgNormal = R.drawable.common_setting_item_singleline_pressed;
       info.childBgPressed = R.drawable.common_setting_item_singleline_pressed_darker;
-      info.groupIndicatorUp = R.drawable.common_expandable_group_indicator_up;
-      info.groupIndicatorDown = R.drawable.common_expandable_group_indicator_down;
+      info.groupArrowUp = R.drawable.common_expandable_group_indicator_up;
+      info.groupArrowDown = R.drawable.common_expandable_group_indicator_down;
       info.groupBgnormal =  R.drawable.common_setting_item_singleline_normal;
       info.groupBgPressed =  R.drawable.common_setting_item_singleline_pressed;
       info.clickedListener = null;
@@ -208,16 +225,29 @@ public class ISimpleExpandableAdapter extends BaseExpandableListAdapter {
       groupHolder = new GroupHolder();
       groupHolder.textView_name = (TextView) convertView
           .findViewById(R.id.expandable_listview_group_name);
+      groupHolder.imageView = (ImageView)convertView.findViewById(R.id.expandable_listview_group_icon);
       groupHolder.imageView_arrow = (ImageView)convertView.findViewById(R.id.expandable_listview_group_indicator);
       convertView.setTag(groupHolder);
     } else {
       groupHolder = (GroupHolder) convertView.getTag();
     }
+    
+    if(DISABLE_CODE!=expandableInfo.groupIndicator){
+      groupHolder.imageView.setImageResource(expandableInfo.groupIndicator);
+    }
+    
+    if(expandableInfo.groupTitleColor!=DISABLE_CODE){
+      groupHolder.textView_name.setTextColor(expandableInfo.groupTitleColor);
+    }
+    if(expandableInfo.groupTitleSize!=DISABLE_CODE){
+      groupHolder.textView_name.setTextSize(TypedValue.COMPLEX_UNIT_SP, expandableInfo.groupTitleSize);
+    }
+    
     groupHolder.textView_name.setText(item.getItemName());
     if(!isExpanded){
-      groupHolder.imageView_arrow.setImageResource(expandableInfo.groupIndicatorDown);
+      groupHolder.imageView_arrow.setImageResource(expandableInfo.groupArrowDown);
     }else {
-      groupHolder.imageView_arrow.setImageResource(expandableInfo.groupIndicatorUp);  
+      groupHolder.imageView_arrow.setImageResource(expandableInfo.groupArrowUp);  
     }
 
     convertView.setBackgroundDrawable(
@@ -248,6 +278,13 @@ public class ISimpleExpandableAdapter extends BaseExpandableListAdapter {
     convertView.setBackgroundDrawable(IStateDrawableUtils.newSelector(mContext,
         expandableInfo.childBgNormal, expandableInfo.childBgPressed));
     
+    
+    if(expandableInfo.childTitleColor!=DISABLE_CODE){
+      childHolder.textView_name.setTextColor(expandableInfo.childTitleColor);
+    }
+    if(expandableInfo.childTitleSize!=DISABLE_CODE){
+      childHolder.textView_name.setTextSize(TypedValue.COMPLEX_UNIT_SP, expandableInfo.childTitleSize);
+    }
     childHolder.textView_name.setText(item.getItemName() );
     if(expandableInfo.childIndicator!=DISABLE_CODE){
       childHolder.imageView.setImageResource(expandableInfo.childIndicator);
@@ -275,6 +312,7 @@ public class ISimpleExpandableAdapter extends BaseExpandableListAdapter {
   }
 
   private class GroupHolder {
+    private ImageView imageView;
     private ImageView imageView_arrow ;
     private TextView textView_name;
 

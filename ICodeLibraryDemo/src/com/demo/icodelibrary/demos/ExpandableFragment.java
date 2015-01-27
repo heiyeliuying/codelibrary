@@ -2,6 +2,7 @@ package com.demo.icodelibrary.demos;
 
 import java.util.ArrayList;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,6 +37,14 @@ public class ExpandableFragment extends IFragment implements IPageRuler {
     expandableListView.setGroupIndicator(null);
     expandableListView.setDivider(null);
     IExpandableInfo expandableInfo = IExpandableInfo.getExpandableInfo(mActivity);
+    expandableInfo.childIndicator = R.drawable.expandable_indicator;
+    expandableInfo.groupTitleColor = Color.parseColor("#ff6666");
+    expandableInfo.groupTitleSize = 20;
+    expandableInfo.groupIndicator = R.drawable.expandable_group_indicator;
+    
+    expandableInfo.childTitleColor  = Color.parseColor("#ff9966");
+    expandableInfo.childTitleSize = 18 ;
+    
     expandableInfo.clickedListener = new IExpandableItemClickedListener() {
       
       @Override
