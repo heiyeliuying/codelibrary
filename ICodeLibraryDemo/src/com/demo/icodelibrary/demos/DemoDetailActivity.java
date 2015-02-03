@@ -79,6 +79,9 @@ public class DemoDetailActivity extends IActivity implements IPageRuler{
       case demo_expandable:
         skipToExpandableList();
         break;
+      case demo_horizontalGrid:
+        skipToHorizontalGrid();
+        break;
     default:
       break;
     }
@@ -239,6 +242,14 @@ public class DemoDetailActivity extends IActivity implements IPageRuler{
     transaction.replace(fragmentId, fragment);
     transaction.commitAllowingStateLoss();
     
+  }
+  
+  public void skipToHorizontalGrid(){
+    
+    FragmentTransaction transaction = fragmentManager.beginTransaction();
+    HorizontalGridFragment fragment = new HorizontalGridFragment();
+    transaction.replace(fragmentId, fragment);
+    transaction.commitAllowingStateLoss();
   }
   
 }

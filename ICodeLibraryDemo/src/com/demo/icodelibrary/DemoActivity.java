@@ -49,7 +49,8 @@ public class DemoActivity extends IActivity  implements IPageRuler {
         "14 轮流播放精品推荐  RecommandFragment",
         "15 手动签名  SignatureFragment",
         "16 首字母快速检索   AlphabetSectionFragment",
-        "17 分类展示列表 ExpandableFragment"
+        "17 分类展示列表 ExpandableFragment",
+        "18 左右滑动的导航列表 HorizontalGridFragment"
         
         
     };
@@ -117,6 +118,9 @@ public class DemoActivity extends IActivity  implements IPageRuler {
             break;
           case 16:
             constant = DemoConstant.demo_expandable;
+            break;
+          case 17:
+            constant = DemoConstant.demo_horizontalGrid;
             break;
 
         default:

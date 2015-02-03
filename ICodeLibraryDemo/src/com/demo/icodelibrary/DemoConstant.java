@@ -18,7 +18,8 @@ public enum DemoConstant {
   demo_recommand,
   demo_signature,
   demo_alphabetSection,
-  demo_expandable
+  demo_expandable,
+  demo_horizontalGrid
   
   ;
   
