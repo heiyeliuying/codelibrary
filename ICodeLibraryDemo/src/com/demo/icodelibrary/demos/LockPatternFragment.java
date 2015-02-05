@@ -33,7 +33,7 @@ public class LockPatternFragment extends IFragment implements IPageRuler {
     lockPatternView = (ISimpleLockPatternView) mContentView.findViewById(R.id.lock_pattern);
 
     ISimpleLockPatternView.LockPatternItem mPatternItem = LockPatternItem.getInstance(mActivity);
-    mPatternItem.mRegularColor = Color.parseColor("#009933");
+  //  mPatternItem.mRegularColor = Color.parseColor("#009933");
     lockPatternView.setPatternItem(mPatternItem);
     lockPatternView.setOnPatternListener(new OnPatternListener() {
 

@@ -8,6 +8,7 @@ import java.util.List;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -744,6 +745,7 @@ import com.code.icodelibrary.R;
       return -1;
     }
 
+    @SuppressLint("NewApi")
     @Override
     public boolean onHoverEvent(MotionEvent event) {
       if (((AccessibilityManager) getContext().getSystemService(Context.ACCESSIBILITY_SERVICE))
@@ -1158,15 +1160,15 @@ import com.code.icodelibrary.R;
       /**
        * 绘制节点的颜色
        */
-      public int mRegularColor = Color.parseColor("#ffffffff");
+      public int mRegularColor = Color.parseColor("#007eff");
       /**
        * 错误时颜色
        */
-      public int  mErrorColor =Color.parseColor("#fff4511e");
+      public int  mErrorColor =Color.parseColor("#ff0000");
       /**
        * 成功时颜色
        */
-      public int mSuccessColor  =  Color.parseColor("#6699cc");
+      public int mSuccessColor  =  Color.parseColor("#00ff00");
       
       
       /**
