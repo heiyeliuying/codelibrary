@@ -19,7 +19,8 @@ public enum DemoConstant {
   demo_signature,
   demo_alphabetSection,
   demo_expandable,
-  demo_horizontalGrid
+  demo_horizontalGrid,
+  demo_lockpattern 
   
   ;
   

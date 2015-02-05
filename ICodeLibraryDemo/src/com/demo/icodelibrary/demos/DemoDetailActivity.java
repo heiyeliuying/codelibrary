@@ -82,6 +82,9 @@ public class DemoDetailActivity extends IActivity implements IPageRuler{
       case demo_horizontalGrid:
         skipToHorizontalGrid();
         break;
+      case demo_lockpattern:
+        skipToLockPattern();
+        break; 
     default:
       break;
     }
@@ -252,4 +255,12 @@ public class DemoDetailActivity extends IActivity implements IPageRuler{
     transaction.commitAllowingStateLoss();
   }
   
+  
+ public void skipToLockPattern(){
+    
+    FragmentTransaction transaction = fragmentManager.beginTransaction();
+    LockPatternFragment fragment = new LockPatternFragment();
+    transaction.replace(fragmentId, fragment);
+    transaction.commitAllowingStateLoss();
+  }
 }

@@ -40,12 +40,13 @@ public class HorizontalGridFragment extends IFragment implements IPageRuler {
 
   @Override
   public void initViews() {
+    
    gridViewPager = (ViewPager) mContentView.findViewById(R.id.horizontal_grid_viewpager);
    ISimplePagerGridAdapter gridAdapter = new ISimplePagerGridAdapter(mActivity, gridItems,
        5, 2);
    gridViewPager.setAdapter(gridAdapter);
    
-   
+   //底部导航圆圈
    circlePageIndicator = (CirclePageIndicator) mContentView.findViewById(R.id.horizontal_grid_indicator);
    int padding = (int)IDestinyUtils.dp2px(mActivity, 10);
    circlePageIndicator.setPadding(padding, padding, padding, padding);
