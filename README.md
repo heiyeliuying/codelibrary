@@ -1,4 +1,7 @@
 # codelibrary
+
+[如何编辑readme.md格式文件请看](https://github.com/guoyunsky/Markdown-Chinese-Demo/edit/master/README.md)
+
  常见功能的简单实践
 =================================
 ###图片手势缩放
