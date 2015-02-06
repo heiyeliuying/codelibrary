@@ -51,7 +51,8 @@ public class DemoActivity extends IActivity  implements IPageRuler {
         "16 首字母快速检索   AlphabetSectionFragment",
         "17 分类展示列表 ExpandableFragment",
         "18 左右滑动的导航列表 HorizontalGridFragment",
-        "19 3*3九宫格手势密码 LockPatternFragment"
+        "19 3*3九宫格手势密码 LockPatternFragment",
+        "20 滚轮式选择  WheelFragment "
         
         
     };
@@ -125,6 +126,9 @@ public class DemoActivity extends IActivity  implements IPageRuler {
             break;
           case 18:
             constant = DemoConstant.demo_lockpattern;
+            break;
+          case 19:
+            constant = DemoConstant.demo_wheel;
             break;
 
         default:

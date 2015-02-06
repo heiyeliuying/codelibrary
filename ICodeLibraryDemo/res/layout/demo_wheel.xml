@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.demo.icodelibrary"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    
+    >
+<TextView 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="使用该控件能够布局出图文混排或者横向竖向滚动的控件."
+            />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal" >
+        
+        
+        <antistatic.spinnerwheel.WheelVerticalView
+            android:id="@+id/user_detail_modify_birthday_years"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:selectionDivider="@drawable/divider_dark_gradient_horizontal"
+            app:selectionDividerHeight="1px"
+            android:layout_weight="1"
+            
+            />
+         <antistatic.spinnerwheel.WheelVerticalView
+            android:id="@+id/user_detail_modify_birthday_months"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:selectionDivider="@drawable/divider_dark_gradient_horizontal"
+            app:selectionDividerHeight="1px" 
+            android:layout_weight="1"
+            />
+
+        <antistatic.spinnerwheel.WheelVerticalView
+            android:id="@+id/user_detail_modify_birthday_days"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:selectionDivider="@drawable/divider_dark_gradient_horizontal"
+            app:selectionDividerHeight="1px" 
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+
+</LinearLayout>

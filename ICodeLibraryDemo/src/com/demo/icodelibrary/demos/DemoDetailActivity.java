@@ -85,6 +85,9 @@ public class DemoDetailActivity extends IActivity implements IPageRuler{
       case demo_lockpattern:
         skipToLockPattern();
         break; 
+      case demo_wheel:
+        skipToWheel();
+        break;
     default:
       break;
     }
@@ -263,4 +266,13 @@ public class DemoDetailActivity extends IActivity implements IPageRuler{
     transaction.replace(fragmentId, fragment);
     transaction.commitAllowingStateLoss();
   }
+ 
+ public void skipToWheel(){
+   
+   FragmentTransaction transaction = fragmentManager.beginTransaction();
+   WheelFragment fragment = new WheelFragment();
+   transaction.replace(fragmentId, fragment);
+   transaction.commitAllowingStateLoss();
+ }
+ 
 }
