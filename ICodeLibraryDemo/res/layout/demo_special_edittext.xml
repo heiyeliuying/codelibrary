@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:float="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.icode.library.widgets.view.FloatLabeledEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="This is the hint" />
+    </com.icode.library.widgets.view.FloatLabeledEditText>
+
+    <!-- add some padding -->
+
+    <com.icode.library.widgets.view.FloatLabeledEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        float:fletPadding="10dp" >
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Username" />
+    </com.icode.library.widgets.view.FloatLabeledEditText>
+
+    <!-- password input -->
+
+    <com.icode.library.widgets.view.FloatLabeledEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        float:fletPaddingBottom="10dp" >
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:inputType="textPassword" />
+    </com.icode.library.widgets.view.FloatLabeledEditText>
+
+    <!-- change color of hint text -->
+
+    <com.icode.library.widgets.view.FloatLabeledEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        float:fletPaddingBottom="10dp"
+        >
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Styled Hint"
+            android:inputType="textPassword" />
+    </com.icode.library.widgets.view.FloatLabeledEditText>
+
+</LinearLayout>

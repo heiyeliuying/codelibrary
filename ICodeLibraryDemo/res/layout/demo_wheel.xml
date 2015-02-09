@@ -24,7 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:selectionDivider="@drawable/divider_dark_gradient_horizontal"
-            app:selectionDividerHeight="1px"
+            app:selectionDividerHeight="2px"
             android:layout_weight="1"
             
             />
@@ -33,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:selectionDivider="@drawable/divider_dark_gradient_horizontal"
-            app:selectionDividerHeight="1px" 
+            app:selectionDividerHeight="2px" 
             android:layout_weight="1"
             />
 
@@ -42,7 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:selectionDivider="@drawable/divider_dark_gradient_horizontal"
-            app:selectionDividerHeight="1px" 
+            app:selectionDividerHeight="2px" 
             android:layout_weight="1"
             />
     </LinearLayout>

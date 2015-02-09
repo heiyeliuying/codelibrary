@@ -4,6 +4,7 @@ import java.util.Calendar;
 import java.util.Locale;
 
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -40,6 +41,11 @@ public class WheelFragment extends IFragment implements IPageRuler {
   @Override
   public void initViews() {
     
+    /***
+     * 如果想要设置分割线等属性,请到布局文件中设置.
+     * 
+     * 
+     */
 
     Calendar calendar = Calendar.getInstance(Locale.CHINA);
     
@@ -48,7 +54,6 @@ public class WheelFragment extends IFragment implements IPageRuler {
     wheel_years = (AbstractWheel) mContentView
         .findViewById(R.id.user_detail_modify_birthday_years);
     
-    
     wheelAdapter_years = new NumericWheelAdapter(mActivity, yearMin,
         calendar.get(Calendar.YEAR));
     floatSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP,
@@ -56,7 +61,7 @@ public class WheelFragment extends IFragment implements IPageRuler {
     wheelAdapter_years.setTextSize(floatSize.intValue());
     wheel_years.setViewAdapter(wheelAdapter_years);
     wheel_years.setCyclic(true);
-
+    
     wheel_years.addChangingListener(new OnWheelChangedListener() {
 
       @Override

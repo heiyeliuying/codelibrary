@@ -52,7 +52,8 @@ public class DemoActivity extends IActivity  implements IPageRuler {
         "17 分类展示列表 ExpandableFragment",
         "18 左右滑动的导航列表 HorizontalGridFragment",
         "19 3*3九宫格手势密码 LockPatternFragment",
-        "20 滚轮式选择  WheelFragment "
+        "20 滚轮式选择  WheelFragment ",
+        "21 SpecialEditTextFragment"
         
         
     };
@@ -130,7 +131,9 @@ public class DemoActivity extends IActivity  implements IPageRuler {
           case 19:
             constant = DemoConstant.demo_wheel;
             break;
-
+          case 20:
+            constant = DemoConstant.demo_special_editText;
+            break;
         default:
           break;
         }

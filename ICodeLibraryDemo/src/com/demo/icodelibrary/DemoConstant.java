@@ -21,7 +21,8 @@ public enum DemoConstant {
   demo_expandable,
   demo_horizontalGrid,
   demo_lockpattern ,
-  demo_wheel
+  demo_wheel,
+  demo_special_editText 
   
   ;
   
