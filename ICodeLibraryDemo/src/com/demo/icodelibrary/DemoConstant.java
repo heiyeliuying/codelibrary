@@ -22,7 +22,8 @@ public enum DemoConstant {
   demo_horizontalGrid,
   demo_lockpattern ,
   demo_wheel,
-  demo_special_editText 
+  demo_special_editText ,
+  demo_ripper
   
   ;
   

@@ -90,7 +90,13 @@ public class DemoDetailActivity extends IActivity implements IPageRuler {
     case demo_special_editText:
       skipToSpecialEditText();
       break;
+   
+    case demo_ripper:
+      skipToRipperView();
+      break;
+      
     default:
+      
       break;
     }
 
@@ -279,5 +285,13 @@ public class DemoDetailActivity extends IActivity implements IPageRuler {
     SpeicalEditTextFragment fragment = new SpeicalEditTextFragment();
     transaction.replace(fragmentId, fragment);
     transaction.commitAllowingStateLoss();
+  }
+  
+  public void skipToRipperView(){
+    FragmentTransaction transaction = fragmentManager.beginTransaction();
+    RipperViewFragment fragment = new RipperViewFragment();
+    transaction.replace(fragmentId, fragment);
+    transaction.commitAllowingStateLoss();
+    
   }
 }

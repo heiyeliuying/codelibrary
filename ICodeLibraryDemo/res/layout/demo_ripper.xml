@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <com.andexert.library.RippleView
+        android:id="@+id/ripper_img"
+        android:layout_width="?android:actionBarSize"
+        android:layout_height="?android:actionBarSize"
+        android:layout_margin="5dp"
+        ripple:rv_centered="true"
+        ripple:rv_color = "#336699"
+         >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:padding="10dp"
+            android:src="@android:drawable/ic_menu_edit" />
+    </com.andexert.library.RippleView>
+    
+    
+    
+     <com.andexert.library.RippleView
+        android:id="@+id/rect"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_height="wrap_content"
+        ripple:rv_type="simpleRipple"
+        ripple:rv_color = "#336699"
+        android:padding="20dp"
+        ripple:rv_zoom="true">
+
+        <TextView
+            android:id="@+id/rect_child"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:text="Hello World!"
+            android:textColor="#336699"
+            />
+
+    </com.andexert.library.RippleView>
+    
+     
+     
+     
+      <com.andexert.library.RippleView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            ripple:rv_color = "#336699"
+            ripple:rv_type="doubleRipple">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/common_text_style_primary"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:text="天上有时下小猪"
+            />
+        </com.andexert.library.RippleView>
+    
+
+</LinearLayout>
