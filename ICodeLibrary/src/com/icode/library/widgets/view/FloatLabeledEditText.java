@@ -24,7 +24,11 @@ import android.widget.TextView;
 
 import com.code.icodelibrary.R;
 import com.nineoldandroids.view.animation.AnimatorProxy;
-
+/**
+ * 对EditText进行了特效优化的View
+ * 当EditText为空时,默认展示hint;当用户开始输入内容时,hint自动缩为一个提示label
+ *
+ */
 public class FloatLabeledEditText extends FrameLayout {
 
     private static final int DEFAULT_PADDING_LEFT= 2;

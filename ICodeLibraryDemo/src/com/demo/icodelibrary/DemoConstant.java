@@ -23,7 +23,8 @@ public enum DemoConstant {
   demo_lockpattern ,
   demo_wheel,
   demo_special_editText ,
-  demo_ripper
+  demo_ripper,
+  demo_floatingButton
   
   ;
   

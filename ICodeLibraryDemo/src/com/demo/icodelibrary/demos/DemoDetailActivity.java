@@ -94,7 +94,9 @@ public class DemoDetailActivity extends IActivity implements IPageRuler {
     case demo_ripper:
       skipToRipperView();
       break;
-      
+    case demo_floatingButton:
+      skipToFloatingButton();
+      break;
     default:
       
       break;
@@ -290,6 +292,14 @@ public class DemoDetailActivity extends IActivity implements IPageRuler {
   public void skipToRipperView(){
     FragmentTransaction transaction = fragmentManager.beginTransaction();
     RipperViewFragment fragment = new RipperViewFragment();
+    transaction.replace(fragmentId, fragment);
+    transaction.commitAllowingStateLoss();
+    
+  }
+  
+  public void skipToFloatingButton(){
+    FragmentTransaction transaction = fragmentManager.beginTransaction();
+    FloatingButtonFragment fragment = new FloatingButtonFragment();
     transaction.replace(fragmentId, fragment);
     transaction.commitAllowingStateLoss();
     

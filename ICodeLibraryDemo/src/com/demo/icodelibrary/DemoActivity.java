@@ -54,7 +54,8 @@ public class DemoActivity extends IActivity  implements IPageRuler {
         "19 3*3九宫格手势密码 LockPatternFragment",
         "20 滚轮式选择  WheelFragment ",
         "21 悬浮hint的文本输入框 SpecialEditTextFragment",
-        "22 带波纹效果的按钮等View RipperViewFragment "
+        "22 带波纹效果的按钮等View RipperViewFragment ",
+        "23 悬浮的按钮  FLoatingButtonFragment "
         
         
     };
@@ -138,6 +139,9 @@ public class DemoActivity extends IActivity  implements IPageRuler {
           case 21:
             constant = DemoConstant.demo_ripper;
             break; 
+          case 22:
+            constant = DemoConstant.demo_floatingButton;
+            break;
         default:
           break;
         }
