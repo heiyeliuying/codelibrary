@@ -46,6 +46,10 @@ public class FloatingButtonFragment extends IFragment implements IPageRuler {
     findViewById(R.id.floatingBtn_orange, clickListener);
     findViewById(R.id.floatingBtn_purple, clickListener);
     findViewById(R.id.floatingBtn_red, clickListener);
+    
+    findButtonById(R.id.floatingBtn_hide, clickListener);
+    findButtonById(R.id.floatingBtn_show, clickListener);
+    
     mFab.setOnClickListener(clickListener);
 
   }
@@ -89,6 +93,12 @@ private class ISimpleFloatingListener implements OnClickListener{
   public void onClick(View view) {
 
     switch (view.getId()) {
+    case R.id.floatingBtn_hide:
+      mFab.hide(true);
+      break;
+    case R.id.floatingBtn_show:
+      mFab.hide(false);
+      break;
     case R.id.floatingBtn_btn:
       fabClicked(view);
       break;

@@ -73,21 +73,21 @@
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/floatingBtn_hide"
                 style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="60dp"
                 android:layout_weight="1"
-                android:onClick="hideFab"
-                android:text="Hide FAB"
+                android:text="隐藏悬浮按钮"
                 tools:ignore="NewApi" />
 
             <Button
+                android:id="@+id/floatingBtn_show"
                 style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="60dp"
                 android:layout_weight="1"
-                android:onClick="showFab"
-                android:text="Show FAB"
+                android:text="显示悬浮按钮"
                 tools:ignore="NewApi" />
 
         </LinearLayout>
